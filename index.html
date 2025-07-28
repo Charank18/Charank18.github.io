@@ -68,11 +68,6 @@
             border: 4px solid var(--secondary);
         }
 
-        .profile-photo i {
-            font-size: 5rem;
-            color: var(--gray);
-        }
-
         .profile-photo img {
             width: 100%;
             height: 100%;
@@ -94,6 +89,18 @@
             color: var(--gray);
             max-width: 600px;
             margin: 0 auto 1.5rem;
+        }
+
+        .education-badge {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            display: inline-block;
+            margin-bottom: 1rem;
         }
 
         .social-links {
@@ -152,7 +159,7 @@
             color: var(--light);
         }
 
-        .education-item, .publication-item, .experience-item, .project-item {
+        .publication-item, .experience-item, .project-item {
             background: rgba(30, 41, 59, 0.5);
             border-radius: 12px;
             padding: 1.5rem;
@@ -161,20 +168,20 @@
             border-left: 4px solid transparent;
         }
 
-        .education-item:hover, .publication-item:hover, .experience-item:hover, .project-item:hover {
+        .publication-item:hover, .experience-item:hover, .project-item:hover {
             background: rgba(30, 41, 59, 0.8);
             border-left: 4px solid var(--primary);
             transform: translateX(5px);
         }
 
-        .institution, .company {
+        .company {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
             color: var(--light);
         }
 
-        .degree, .position {
+        .position {
             font-size: 1.1rem;
             font-weight: 500;
             color: var(--primary);
@@ -361,30 +368,21 @@
         <header>
             <div class="profile-container">
                 <div class="profile-photo">
-                    <i class="fas fa-user"></i>
+                    <img src="profile.jpg" alt="Charan Karnati">
                 </div>
             </div>
             <h1>Charan Karnati</h1>
-            <p class="tagline">B.Tech in Computer Science & Engineering | Researcher in Quantum Computing & AI</p>
+            <div class="education-badge">
+                B.Tech in Computer Science & Engineering | NIT Andhra Pradesh | CGPA: 9.07
+            </div>
+            <p class="tagline">Researcher in Quantum Computing & AI | Published Author | AI Engineer</p>
             
             <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Charank18" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/charankarnati/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:charankarnati180604@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </header>
-
-        <section class="section">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="education-item">
-                <div class="institution">National Institute of Technology (NIT), Andhra Pradesh</div>
-                <div class="degree">B.Tech - Computer Science & Engineering, summa cum laude</div>
-                <span class="date">2022–2026</span>
-                <div class="description">CGPA: 9.07</div>
-            </div>
-        </section>
 
         <section class="section">
             <h2 class="section-title">Publications</h2>
@@ -600,7 +598,7 @@
 
         <footer>
             <p>&copy; 2025 Charan Karnati | Designed with HTML, CSS & JavaScript</p>
-            <p>Contact: charan.karnati@example.com</p>
+            <p>Contact: <a href="mailto:charankarnati180604@gmail.com" style="color: var(--primary);">charankarnati180604@gmail.com</a></p>
         </footer>
     </div>
 
