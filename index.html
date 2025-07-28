@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charan Karnati | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #8b5cf6;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --dark-gray: #334155;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 2rem 0;
+            position: relative;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            padding: 6px;
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 4px solid var(--secondary);
+        }
+
+        .profile-photo i {
+            font-size: 5rem;
+            color: var(--gray);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .section {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .section-title {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+            color: var(--light);
+        }
+
+        .education-item, .publication-item, .experience-item, .project-item {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .education-item:hover, .publication-item:hover, .experience-item:hover, .project-item:hover {
+            background: rgba(30, 41, 59, 0.8);
+            border-left: 4px solid var(--primary);
+            transform: translateX(5px);
+        }
+
+        .institution, .company {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--light);
+        }
+
+        .degree, .position {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .description {
+            color: #cbd5e1;
+        }
+
+        .description ul {
+            padding-left: 1.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .description li {
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .publication-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .status-accepted {
+            background: rgba(101, 163, 13, 0.2);
+            color: #65a30d;
+            border: 1px solid #65a30d;
+        }
+
+        .status-submitted {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .status-preparation {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid #f59e0b;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--dark-gray);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .achievement-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .achievement-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .achievement-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .skills-grid, .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0.1;
+            font-size: 10rem;
+            color: white;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">CK</div>
+    
+    <div class="container">
+        <header>
+            <div class="profile-container">
+                <div class="profile-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <h1>Charan Karnati</h1>
+            <p class="tagline">B.Tech in Computer Science & Engineering | Researcher in Quantum Computing & AI</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <div class="institution">National Institute of Technology (NIT), Andhra Pradesh</div>
+                <div class="degree">B.Tech - Computer Science & Engineering, summa cum laude</div>
+                <span class="date">2022–2026</span>
+                <div class="description">CGPA: 9.07</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Publications</h2>
+            
+            <div class="publication-item">
+                <span class="publication-title">Meta-Heuristic Algorithms for the Quasi Total Double Roman Domination Problem</span>
+                <span class="publication-status status-submitted">Submitted</span>
+                <div class="description">
+                    <strong>First Author.</strong> Submitted to <em>RAIRO - Theoretical Informatics and Applications (RAIRO: ITA)</em><br>
+                    <strong>Manuscript ID:</strong> ita250024. Introduces customized meta-heuristic strategies to address the NP-Hard QTDRD problem, incorporating novel labeling heuristics and experimentally validated results. Currently under review after minor revision.
+                </div>
+            </div>
+            
+            <div class="publication-item">
+                <span class="publication-title">Quantum Key Distribution Protocols: Evolution, Types, and Applications</span>
+                <span class="publication-status status-accepted">Accepted</span>
+                <div class="description">
+                    <strong>First Author.</strong> Accepted at the <strong>16th IEEE International Conference on Computing, Communication and Networking Technologies (ICCCNT)</strong><br>
+                    <strong>Paper ID:</strong> 9231. A comprehensive survey of QKD protocols—covering prepare-and-measure, entanglement-based, MDI-QKD, and Twin-Field models—with an emphasis on theoretical robustness, implementation trade-offs, and practical applications.
+                </div>
+            </div>
+            
+            <div class="publication-item">
+                <span class="publication-title">Quantum Approaches to NP-Hard Combinatorial Optimization Problems</span>
+                <span class="publication-status status-accepted">Accepted</span>
+                <div class="description">
+                    <strong>First Author.</strong> Accepted at the <strong>10th International Conference on Microelectronics, Computing Communication Systems (MCCS-2025)</strong><br>
+                    <strong>Paper ID:</strong> MCCS25009. This paper provides a systematic review of quantum approaches for NP-hard optimization problems, analyzing performance trade-offs and hardware limitations across annealing, QAOA, and Grover-based methods.
+                </div>
+            </div>
+            
+            <div class="publication-item">
+                <span class="publication-title">Multi-Agent Simulation of Urban Dynamics Using LLM-Based Agents</span>
+                <span class="publication-status status-preparation">In Preparation</span>
+                <div class="description">
+                    <strong>Co-author.</strong> Manuscript under preparation at the <strong>Artificial Intelligence Institute of South Carolina (AIISC), University of South Carolina</strong><br>
+                    Presents a novel multi-agent framework where LLM-driven agents simulate commuter and advertiser interactions in NYC, leveraging structured prompting and real-time spatial reasoning to evaluate emergent social behaviors across multiple generations.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-item">
+                <div class="company">Annam.AI</div>
+                <div class="position">Software Engineer Intern</div>
+                <span class="date">July 2025 – Ongoing</span>
+                <div class="description">
+                    <ul>
+                        <li>Developing AI-driven tools to identify vulnerabilities in agricultural IoT devices and infrastructure, leveraging large language models for real-time threat detection and response.</li>
+                        <li>Collaborating with interdisciplinary teams at IIT Ropar to design adversarial testing frameworks and automate security audits, ensuring robust protection of AI-powered agriculture systems.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="company">Indian Institute of Technology, Ropar</div>
+                <div class="position">Student Research Intern, Mentored by Dr. Sudharshan Iyengar</div>
+                <span class="date">May 2025 – July 2025</span>
+                <div class="description">
+                    <ul>
+                        <li>Developed a full-stack generative AI pipeline for an open-source project, ViBe, that processes YouTube videos and uploaded files by extracting audio, transcribing content, and generating contextual quiz using Ollama.</li>
+                        <li>Automated the creation and integration of course items—video segments, quizzes, and question banks—with metadata management and validation using Express, TypeScript, and InversifyJS.</li>
+                        <li>Integrated lightweight access control and JWT-based authentication to securely gate AI-generated content and prevent unauthorized API access in the ViBe backend.</li>
+                        <li>Achieved a 65% reduction in manual content curation time and improved quiz relevance scores by 28% using user feedback from a closed beta with 100+ students.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="company">Artificial Intelligence Institute of South Carolina (AIISC), University of South Carolina</div>
+                <div class="position">Student Research Intern (Remote), Mentored by Dr. Amitava Das and Aman Chadha</div>
+                <span class="date">Feb 2025 – Ongoing</span>
+                <div class="description">
+                    <ul>
+                        <li>Engineered a multi-agent system where LLM-based agents simulate commuters and advertisers navigating NYC, evolving strategies through repeated social interactions and spatial decisions.</li>
+                        <li>Designed a structured LLM prompting framework using Chain-of-Thought reasoning and JSON-based outputs to enable interpretable agent decisions and downstream simulation control.</li>
+                        <li>Integrated HuggingFace Transformers and Grog APIs with robust JSON extraction, validation, and retry logic to ensure scalable, and adaptive agent behavior across thousands of simulation cycles.</li>
+                        <li>Built an interactive UI framework using Mapbox GL JS to visualize agent behavior across four dynamic perspectives.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill">J2SE</span>
+                        <span class="skill">C++</span>
+                        <span class="skill">C</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">SQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skill-list">
+                        <span class="skill">ReactJS</span>
+                        <span class="skill">Node.js</span>
+                        <span class="skill">Express.js</span>
+                        <span class="skill">Django</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-list">
+                        <span class="skill">TensorFlow</span>
+                        <span class="skill">PyTorch</span>
+                        <span class="skill">scikit-learn</span>
+                        <span class="skill">Hugging Face</span>
+                        <span class="skill">SpaCy</span>
+                        <span class="skill">NLTK</span>
+                        <span class="skill">Gensim</span>
+                        <span class="skill">FastText</span>
+                        <span class="skill">OpenNMT</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Areas of Interest</h3>
+                    <div class="skill-list">
+                        <span class="skill">Graph Theory</span>
+                        <span class="skill">Quantum Computing</span>
+                        <span class="skill">Generative AI</span>
+                        <span class="skill">Enterprise AI</span>
+                        <span class="skill">LLM Safety</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="project-item">
+                <div class="publication-title">Quantum-Enhanced Algorithms for NP-Hard Graph Domination Problems</div>
+                <div class="description">
+                    <ul>
+                        <li>Investigate hybrid quantum-classical approaches to solve Roman and Quasi-Total Roman Domination problems on large-scale graphs.</li>
+                        <li>Implement QAOA (Quantum Approximate Optimization Algorithm) using IBM Qiskit and benchmark against classical metaheuristics such as Genetic Algorithms and Artificial Bee Colony.</li>
+                        <li>Design custom cost Hamiltonians and optimize quantum circuit parameters for domination-based objective functions.</li>
+                        <li>Collaborate with graph theory researchers to evaluate solution quality across real-world and synthetic graph instances.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="publication-title">Research Paper Critique (RAG-based)</div>
+                <div class="description">
+                    <ul>
+                        <li>Created a lightweight RAG pipeline using LangChain, Faiss, and Groq LLaMA3-70B to analyze research papers.</li>
+                        <li>Optimized retrieval and generation by chunking PDFs and using vector similarity over Faiss DB.</li>
+                        <li>Implemented context-aware prompt engineering to improve the relevance and coherence of AI-generated critiques.</li>
+                        <li>Developed an interactive streamlit interface enabling users to upload papers and receive detailed, AI-driven analytical summaries in real time.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Achievements</h2>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Top 0.1 Percentile in NPTEL Cloud Computing</h3>
+                        <p>Scored 97% in NPTEL Cloud Computing course, ranking in the top 0.1 percentile among 30,000+ participants.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Top 20 in IIT Indore Summer Internship</h3>
+                        <p>Awarded a cash prize as one of the top 20 performers in the IIT Indore Summer Internship.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>4th Place in RBI Banking Quiz</h3>
+                        <p>Received fourth place in the RB190 (Reserve Bank of India) banking and financial knowledge quiz competition, held at the state level of Andhra Pradesh, 2023.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>AS Rao Science Talent Search</h3>
+                        <p>Secured an opportunity to participate in Dr. AS Rao annual summer workshop for being in top 50 participants AS Rao's Science Talent Search Examination (STSE) in 2019.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Charan Karnati | Designed with HTML, CSS & JavaScript</p>
+            <p>Contact: charan.karnati@example.com</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
